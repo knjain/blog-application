@@ -1,5 +1,6 @@
 import { fetchAuthorData } from "@/utils/fetchAuthor";
 import { fetchData } from "@/utils/fetchIndividualBlog";
+import Image from "next/image";
 import React from "react";
 
 const page = async ({
@@ -19,7 +20,9 @@ const page = async ({
   return (
     <div className="container mx-auto px-16 py-8 bg-white min-h-screen ">
       <div className="flex justify-center items-center">
-        <img
+        <Image
+          height={200}
+          width={200}
           src={blogData.photo_url}
           alt={blogData.title}
           className="w-2/6 rounded-lg"
@@ -29,12 +32,16 @@ const page = async ({
           <p className="text-gray-600 mb-4 ">{blogData.description}</p>
           <div className="flex mt-4 items-center">
             <h3>Published by - </h3>
-            <img
+            <Image
+              height={200}
+              width={200}
               src={author.profile_picture}
               className="w-14 h-14 rounded-2xl border border-black mx-3"
               alt={author.first_name}
             />
-            <h5>{author.first_name} {author.last_name}</h5>
+            <h5>
+              {author.first_name} {author.last_name}
+            </h5>
           </div>
         </div>
       </div>
